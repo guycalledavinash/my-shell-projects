@@ -1,1 +1,29 @@
+#!/bin/bash
 
+# Author: Avinash
+# Date:16/09/2019
+# Version: v2
+
+# This script will report the aws resource usage using crontab
+
+# aws ec2
+# aws s3
+# aws lambda
+# aws iam users
+
+
+# List of ec2 instances
+echo "The below are the ec2 instances available"
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+
+# List the s3 buckets
+echo "The below are the s3 buckets available"
+aws s3 ls
+
+# List lambda buckets
+echo "The below is the lisr of lambda buckets available"
+aws lambda list-functions
+
+# List IAM users
+echo "The below are the IAM users available"
+aws iam list-users
